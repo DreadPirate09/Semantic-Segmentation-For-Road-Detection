@@ -11,8 +11,8 @@
   <img src="u_net2.PNG" width="45%" />
 </p>
 
-###### as you can observe ,I excluded the map intentionaly from the training masks data so we can use the gps feature in the self driving model
-###### here is a mask sample
+##### as you can observe ,I excluded the map intentionally from the training masks data so we can use the gps feature in the self driving model
+##### here is a mask sample
 
 <p align="center">
   <img src="mask_sample.bmp" width="45%" />
