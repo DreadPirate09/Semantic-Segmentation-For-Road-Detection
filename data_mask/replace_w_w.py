@@ -10,6 +10,9 @@ for i,im in enumerate(imgs):
 		img = np.array(img)
 		mask = np.any(img != [0,0,0], axis=-1)
 		img[mask] = [255,255,255]
+		img[img==255] = 1
+		img[img==0] = 255
+		img[img==1] = 0
 		processed_image = Image.fromarray(img)
 		processed_image.save(im.replace("_mask",""))
 		os.remove(im)
