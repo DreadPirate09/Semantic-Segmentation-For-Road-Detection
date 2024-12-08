@@ -34,7 +34,7 @@ pause=False
 last_time=0
 start_time=time.time()
 max_samples=450000
-samples_per_second=10
+samples_per_second=30
 current_sample = 0
 stats_frame=0
 wait_time=(1/samples_per_second)
@@ -105,7 +105,10 @@ while True:
 		mask = resized_mask == 1
 
 		start_time = time.time()
-		org_img[150:150 + mask.shape[0], :, 1] = np.where(mask, 230, org_img[150:150 + mask.shape[0], :, 1])
+		org_img[150:150 + mask.shape[0], :, 0] = np.where(mask, 50, org_img[150:150 + mask.shape[0], :, 0])
+		org_img[150:150 + mask.shape[0], :, 1] = np.where(mask, 255, org_img[150:150 + mask.shape[0], :, 1])
+		org_img[150:150 + mask.shape[0], :, 2] = np.where(mask, 50, org_img[150:150 + mask.shape[0], :, 2])
+
 		print("Apply mask time: ", time.time() - start_time)
 
 		image_array = np.transpose(org_img, (1, 0, 2))
