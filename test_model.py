@@ -105,9 +105,9 @@ while True:
 		mask = resized_mask == 1
 
 		start_time = time.time()
-		org_img[150:150 + mask.shape[0], :, 0] = np.where(mask, 50, org_img[150:150 + mask.shape[0], :, 0])
+		org_img[150:150 + mask.shape[0], :, 0] = np.where(mask, 0, org_img[150:150 + mask.shape[0], :, 0])
 		org_img[150:150 + mask.shape[0], :, 1] = np.where(mask, 255, org_img[150:150 + mask.shape[0], :, 1])
-		org_img[150:150 + mask.shape[0], :, 2] = np.where(mask, 50, org_img[150:150 + mask.shape[0], :, 2])
+		# org_img[150:150 + mask.shape[0], :, 2] = np.where(mask, 0, org_img[150:150 + mask.shape[0], :, 2])
 
 		print("Apply mask time: ", time.time() - start_time)
 

@@ -17,3 +17,10 @@
 <p align="center">
   <img src="mask_sample.bmp" width="45%" />
 </p>
+
+
+##### Looks like it works pretty well for lane marks
+
+<p align="center">
+  <img src="lane_u_net.png" width="45%" />
+</p>

@@ -17,7 +17,7 @@ from utils import (
 LEARNING_RATE = 1e-4
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 1
-NUM_EPOCHS = 3
+NUM_EPOCHS = 10
 NUM_WORKERS = 2
 IMAGE_HEIGHT = 160
 IMAGE_WIDTH = 240
@@ -54,7 +54,7 @@ def main():
 	train_transform = A.Compose(
 		[
 			A.Resize(height=IMAGE_HEIGHT, width=IMAGE_WIDTH),
-			# A.VerticalFlip(p=0.1),
+			A.VerticalFlip(p=0.1),
 			A.Normalize(
 					mean=[0.0, 0.0, 0.0],
 					std=[1.0, 1.0, 1.0],
