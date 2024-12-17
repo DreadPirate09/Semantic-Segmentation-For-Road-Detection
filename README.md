@@ -22,5 +22,5 @@
 ##### Looks like it works pretty well for lane marks
 
 <p align="center">
-  <img src="lane_u_net.png" width="45%" />
+  <img src="lane_u_net.PNG" width="45%" />
 </p>
