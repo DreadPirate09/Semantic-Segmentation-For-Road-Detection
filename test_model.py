@@ -23,7 +23,6 @@ screen = pygame.display.set_mode(window_size)
 pygame.display.set_caption("GTAV constructed image")
 clock = pygame.time.Clock()
 
-LEARNING_RATE = 1e-4
 IMAGE_HEIGHT = 160
 IMAGE_WIDTH = 240
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
