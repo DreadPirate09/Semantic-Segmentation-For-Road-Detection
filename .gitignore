@@ -1,0 +1,10 @@
+data/
+data_mask/*.bmp
+saved_imgs/
+my_checkpoint.pth
+my_checkpoint.pth.tar
+__pycache__/
+train/
+train_masks/
+validation/
+validation_masks/
