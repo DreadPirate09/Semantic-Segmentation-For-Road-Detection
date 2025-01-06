@@ -81,8 +81,17 @@ while True:
 		img = img.resize((640, 360), Image.BICUBIC)
 		org_img = img
 		org_img = np.array(org_img)
-		img = img.crop(box=(0, 150, 640, 360))
 
+		x_start, y_start = 5, 305
+		x_end, y_end = 130, 355
+
+		original_values = org_img[y_start:y_end, x_start:x_end, :].copy()
+		org_img = org_img / 4
+
+		org_img[y_start:y_end, x_start:x_end, :] = original_values
+
+
+		img = img.crop(box=(0, 150, 640, 360))
 		img_np = np.array(img)
 
 		transformed = transform(image=img_np)
@@ -105,8 +114,8 @@ while True:
 
 		start_time = time.time()
 		org_img[150:150 + mask.shape[0], :, 0] = np.where(mask, 0, org_img[150:150 + mask.shape[0], :, 0])
-		org_img[150:150 + mask.shape[0], :, 1] = np.where(mask, 255, org_img[150:150 + mask.shape[0], :, 1])
-		# org_img[150:150 + mask.shape[0], :, 2] = np.where(mask, 0, org_img[150:150 + mask.shape[0], :, 2])
+		org_img[150:150 + mask.shape[0], :, 1] = np.where(mask, 200, org_img[150:150 + mask.shape[0], :, 1])
+		org_img[150:150 + mask.shape[0], :, 2] = np.where(mask, 0, org_img[150:150 + mask.shape[0], :, 2])
 
 		print("Apply mask time: ", time.time() - start_time)
 
