@@ -18,7 +18,7 @@ from utils import (
 	)
 
 pygame.init()
-window_size = (640, 360)
+window_size = (800, 600)
 screen = pygame.display.set_mode(window_size)
 pygame.display.set_caption("GTAV constructed image")
 clock = pygame.time.Clock()
@@ -82,8 +82,8 @@ while True:
 		org_img = img
 		org_img = np.array(org_img)
 
-		x_start, y_start = 5, 305
-		x_end, y_end = 130, 355
+		x_start, y_start = 5, 290
+		x_end, y_end = 130, 360
 
 		original_values = org_img[y_start:y_end, x_start:x_end, :].copy()
 		org_img = org_img / 4
@@ -120,7 +120,9 @@ while True:
 		print("Apply mask time: ", time.time() - start_time)
 
 		image_array = np.transpose(org_img, (1, 0, 2))
-		image_surface = pygame.surfarray.make_surface(image_array)
+
+		resized_array = cv2.resize(image_array, (600, 800))
+		image_surface = pygame.surfarray.make_surface(resized_array)
 
 		screen.fill((0, 0, 0))
 		screen.blit(image_surface, (0, 0)) 
