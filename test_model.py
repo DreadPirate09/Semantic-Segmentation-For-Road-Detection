@@ -76,7 +76,7 @@ while True:
 		
 		start_time = time.time()
 		sct_img = sct.grab(mon)
-		print("Frame Capture Time: ", time.time() - start_time)
+		# print("Frame Capture Time: ", time.time() - start_time)
 		img = Image.frombytes('RGB', sct_img.size, sct_img.rgb)
 		img = img.resize((640, 360), Image.BICUBIC)
 		org_img = img
@@ -102,13 +102,13 @@ while True:
 
 		start_time = time.time()
 		preds = torch.sigmoid(model(input_tensor))
-		print("Inference Time: ", time.time() - start_time)
+		# print("Inference Time: ", time.time() - start_time)
 		preds = (preds > 0.5).float()
 
 		mask_np = preds.squeeze().cpu().numpy()
 		start_time = time.time()
 		resized_mask = cv2.resize(mask_np, (640, 210), interpolation=cv2.INTER_NEAREST)
-		print("Mask Resize Time: ", time.time() - start_time)
+		# print("Mask Resize Time: ", time.time() - start_time)
 
 		mask = resized_mask == 1
 
@@ -117,7 +117,7 @@ while True:
 		org_img[150:150 + mask.shape[0], :, 1] = np.where(mask, 255, org_img[150:150 + mask.shape[0], :, 1])
 		org_img[150:150 + mask.shape[0], :, 2] = np.where(mask, 0, org_img[150:150 + mask.shape[0], :, 2])
 
-		print("Apply mask time: ", time.time() - start_time)
+		# print("Apply mask time: ", time.time() - start_time)
 
 		image_array = np.transpose(org_img, (1, 0, 2))
 
